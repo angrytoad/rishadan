@@ -17,12 +17,12 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
+Route::get('/verify/{token}', 'Auth\RegisterController@verify')->name('verify');
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'me'], function () {
     Route::get('/', 'HomeController@index')->name('dashboard');
     Route::get('/account', 'HomeController@index')->name('account');
     Route::get('/collection', 'HomeController@index')->name('collection');
 });
-
 
 

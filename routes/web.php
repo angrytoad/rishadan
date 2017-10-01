@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/login', ['as' => 'login', 'uses' => 'IndexController@login']);
+Route::get('/logout', ['as' => 'logout', 'uses' => 'IndexController@logout'])->middleware('auth');
+
+Route::get('/', 'IndexController@index')->name('index');
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/auth0/callback', '\Auth0\Login\Auth0Controller@callback');

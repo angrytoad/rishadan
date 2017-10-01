@@ -12,10 +12,17 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.welcome');
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/verify/{token}', 'Auth\RegisterController@verify')->name('verify');
+
+Route::group(['middleware' => ['auth'], 'prefix' => 'me'], function () {
+    Route::get('/', 'HomeController@index')->name('dashboard');
+    Route::get('/account', 'HomeController@index')->name('account');
+    Route::get('/collection', 'HomeController@index')->name('collection');
+});
+
+

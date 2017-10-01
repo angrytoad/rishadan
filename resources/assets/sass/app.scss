@@ -1,3 +1,5 @@
+// Bootstrap
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
@@ -5,5 +7,27 @@
 // Variables
 @import "variables";
 
-// Bootstrap
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+// Structure
+@import "structure";
+
+
+
+
+// Includes
+@import "includes/header";
+@import "includes/main";
+@import "includes/footer";
+
+// Pages
+@import "pages/homepage";
+
+#app{
+  display:grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+  "header"
+  "content"
+  "footer";
+
+}

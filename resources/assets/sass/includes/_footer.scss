@@ -1,0 +1,36 @@
+#footer {
+  grid-area: footer;
+  padding: 1rem;
+  background: url(/images/hypnotize.png);
+  background-repeat: repeat;
+  border-top: 1px solid rgba($text_color, 0.1);
+  margin-top: 4rem;
+  box-shadow:0px 0px 9px rgba($text_color,0.3);
+  position: relative;
+
+  #footer_bg {
+    background: rgba($subtle_grey, 0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  #center_wrapper {
+    padding: 0;
+    position: relative;
+    z-index:1;
+    display: grid;
+    grid-template-columns: 1fr 2fr 330px;
+    grid-template-rows: 1fr;
+    grid-template-areas: ". . .";
+    align-items: center;
+    width: 1170px;
+    margin: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+
+}

@@ -8350,57 +8350,27 @@ button.close {
   }
 }
 
-html {
-  background: -webkit-gradient(linear, right top, left top, from(#05668D), color-stop(#028090), color-stop(#00A896), to(#02C39A));
-  background: linear-gradient(270deg, #05668D, #028090, #00A896, #02C39A);
-  background-size: 800% 800%;
-  -webkit-animation: AnimationName 100s ease infinite;
-  animation: AnimationName 100s ease infinite;
-}
-
-@-webkit-keyframes AnimationName {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@keyframes AnimationName {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
 body {
   background: none;
 }
 
 a {
-  color: #05668D;
+  color: #00A896;
 }
 
 a:focus,
 a:hover {
-  color: #028090;
+  color: #02C39A;
 }
 
 .btn {
-  background: #05668D;
+  background: #00A896;
+}
+
+.btn:hover,
+.btn:focus,
+.btn:active {
+  background: #02C39A;
 }
 
 #header {
@@ -8408,20 +8378,55 @@ a:hover {
   padding: 1rem;
   background: url(/images/hypnotize.png);
   background-repeat: repeat;
-  border-bottom: 1px solid rgba(51, 51, 51, 0.1);
-  margin-bottom: 4rem;
+  margin-bottom: 1rem;
   position: relative;
   -webkit-box-shadow: 0px 0px 9px rgba(51, 51, 51, 0.3);
           box-shadow: 0px 0px 9px rgba(51, 51, 51, 0.3);
 }
 
+#header p,
+#header label {
+  color: #F7F7F7;
+}
+
 #header #header_bg {
-  background: rgba(245, 245, 245, 0.6);
+  background: linear-gradient(216deg, #1a1a1a, #232323, #343434);
+  background-size: 600% 600%;
+  -webkit-animation: GreySwivel 20s ease infinite;
+  animation: GreySwivel 20s ease infinite;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+}
+
+@-webkit-keyframes GreySwivel {
+  0% {
+    background-position: 100% 0%;
+  }
+
+  50% {
+    background-position: 0% 100%;
+  }
+
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
+@keyframes GreySwivel {
+  0% {
+    background-position: 100% 0%;
+  }
+
+  50% {
+    background-position: 0% 100%;
+  }
+
+  100% {
+    background-position: 100% 0%;
+  }
 }
 
 #header #center_wrapper {
@@ -8448,7 +8453,6 @@ a:hover {
   background-size: cover;
   border-radius: 4px;
   overflow: hidden;
-  border: 1px solid rgba(51, 51, 51, 0.1);
 }
 
 #header #menu #store_link {
@@ -8492,12 +8496,7 @@ a:hover {
   text-decoration: none !important;
 }
 
-#header #branding a:hover h1 {
-  opacity: 0.7;
-}
-
 #header #branding h1 {
-  color: #05668D;
   margin: 0;
 }
 
@@ -8550,12 +8549,9 @@ a:hover {
 }
 
 .main {
-  border: 1px solid rgba(51, 51, 51, 0.1);
   width: 1170px;
   margin: auto;
-  background: #f5f5f5;
   padding: 1rem;
-  border-radius: 4px;
   overflow: hidden;
 }
 
@@ -8564,15 +8560,21 @@ a:hover {
   padding: 1rem;
   background: url(/images/hypnotize.png);
   background-repeat: repeat;
-  border-top: 1px solid rgba(51, 51, 51, 0.1);
-  margin-top: 4rem;
+  margin-top: 1rem;
   -webkit-box-shadow: 0px 0px 9px rgba(51, 51, 51, 0.3);
           box-shadow: 0px 0px 9px rgba(51, 51, 51, 0.3);
   position: relative;
 }
 
+#footer p {
+  color: #F7F7F7;
+}
+
 #footer #footer_bg {
-  background: rgba(245, 245, 245, 0.6);
+  background: linear-gradient(216deg, #1a1a1a, #232323, #343434);
+  background-size: 600% 600%;
+  -webkit-animation: GreySwivel 20s ease infinite;
+  animation: GreySwivel 20s ease infinite;
   position: absolute;
   top: 0;
   left: 0;
@@ -8580,21 +8582,88 @@ a:hover {
   bottom: 0;
 }
 
+@-webkit-keyframes GreySwivel {
+  0% {
+    background-position: 100% 0%;
+  }
+
+  50% {
+    background-position: 0% 100%;
+  }
+
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
+@keyframes GreySwivel {
+  0% {
+    background-position: 100% 0%;
+  }
+
+  50% {
+    background-position: 0% 100%;
+  }
+
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
 #footer #center_wrapper {
   padding: 0;
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1fr 2fr 330px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr;
-  grid-template-areas: ". . .";
+  grid-template-areas: "menu1 menu2 copyright branding";
+  width: 1170px;
+  margin: auto;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 1170px;
-  margin: auto;
   padding-left: 1rem;
   padding-right: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+#footer #center_wrapper ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+#footer #center_wrapper ul li {
+  font-size: 1.6rem;
+}
+
+#footer #center_wrapper #left_footer {
+  grid-area: menu1;
+}
+
+#footer #center_wrapper #mid_footer {
+  grid-area: menu2;
+}
+
+#footer #center_wrapper #branding {
+  grid-area: branding;
+}
+
+#footer #center_wrapper #branding a:hover {
+  text-decoration: none !important;
+}
+
+#footer #center_wrapper #branding h1 {
+  margin: 0;
+}
+
+#footer #center_wrapper #logo {
+  grid-area: logo;
+}
+
+#footer #center_wrapper #copyright {
+  grid-area: copyright;
 }
 
 #app {

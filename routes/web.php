@@ -26,9 +26,9 @@ Route::get('/about-us', 'Pages\AboutUsController@index')->name('about us');
 
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'me'], function () {
-    Route::get('/', 'HomeController@index')->name('dashboard');
-    Route::get('/account', 'HomeController@index')->name('account');
-    Route::get('/collection', 'HomeController@index')->name('collection');
+    Route::get('/', 'Pages\HomeController@index')->name('dashboard');
+    Route::get('/account', 'Pages\HomeController@index')->name('account');
+    Route::get('/collection', 'Pages\HomeController@index')->name('collection');
 });
 
 

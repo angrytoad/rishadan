@@ -3,13 +3,38 @@
   padding:1rem;
   background: url(/images/hypnotize.png);
   background-repeat: repeat;
-  border-bottom:1px solid rgba($text_color,0.1);
-  margin-bottom:4rem;
+  margin-bottom:1rem;
   position:relative;
   box-shadow:0px 0px 9px rgba($text_color,0.3);
 
+  p, label{
+    color:$subtle_grey;
+  }
+
   #header_bg {
-    background: rgba($subtle_grey, 0.6);
+    background: linear-gradient(216deg, #1a1a1a, #232323, #343434);
+    background-size: 600% 600%;
+
+    -webkit-animation: GreySwivel 20s ease infinite;
+    -moz-animation: GreySwivel 20s ease infinite;
+    animation: GreySwivel 20s ease infinite;
+
+    @-webkit-keyframes GreySwivel {
+      0%{background-position:100% 0%}
+      50%{background-position:0% 100%}
+      100%{background-position:100% 0%}
+    }
+    @-moz-keyframes GreySwivel {
+      0%{background-position:100% 0%}
+      50%{background-position:0% 100%}
+      100%{background-position:100% 0%}
+    }
+    @keyframes GreySwivel {
+      0%{background-position:100% 0%}
+      50%{background-position:0% 100%}
+      100%{background-position:100% 0%}
+    }
+
     position: absolute;
     top: 0;
     left: 0;
@@ -27,7 +52,7 @@
     grid-template-areas:
             "branding menu login_form";
     align-items: center;
-    width:1170px;
+    width:$main_page_width;
     margin:auto;
     padding-left:1rem;
     padding-right:1rem;
@@ -40,7 +65,6 @@
     background-size:cover;
     border-radius: 4px;
     overflow: hidden;
-    border:1px solid rgba($text_color,0.1);
 
     #store_link{
       height:100px;
@@ -82,14 +106,9 @@
 
     a:hover{
       text-decoration: none!important;
-
-      h1{
-        opacity:0.7;
-      }
     }
 
     h1{
-      color:$sea_blue;
       margin:0;
     }
 

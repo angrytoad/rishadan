@@ -57,6 +57,7 @@
     padding-right: 1rem;
     padding-top:2rem;
     padding-bottom:2rem;
+    grid-gap:120px;
 
     ul{
       padding:0;
@@ -69,6 +70,7 @@
 
     #left_footer{
       grid-area: menu1;
+      border-right:2px solid rgba($subtle_grey,0.2);
     }
 
     #mid_footer{

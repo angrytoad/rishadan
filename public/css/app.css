@@ -8627,6 +8627,7 @@ a:hover {
   padding-right: 1rem;
   padding-top: 2rem;
   padding-bottom: 2rem;
+  grid-gap: 120px;
 }
 
 #footer #center_wrapper ul {
@@ -8640,6 +8641,7 @@ a:hover {
 
 #footer #center_wrapper #left_footer {
   grid-area: menu1;
+  border-right: 2px solid rgba(247, 247, 247, 0.2);
 }
 
 #footer #center_wrapper #mid_footer {

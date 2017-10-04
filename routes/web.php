@@ -18,8 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/verify/{token}', 'Auth\RegisterController@verify')->name('verify');
+Route::get('/verified', 'Auth\RegisterController@verified')->name('verified');
+Route::post('/verified', 'Auth\RegisterController@resend')->name('resend');
 
-Route::group(['middleware' => ['auth'], 'prefix' => 'me'], function () {
+Route::group(['middleware' => ['auth', 'auth.verified'], 'prefix' => 'me'], function () {
     Route::get('/', 'HomeController@index')->name('dashboard');
     Route::get('/account', 'HomeController@index')->name('account');
     Route::get('/collection', 'HomeController@index')->name('collection');

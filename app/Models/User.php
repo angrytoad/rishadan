@@ -35,6 +35,6 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\UserAddress');
     }
     public function email_verification() {
-        return $this->hasOne('App\Models\User');
+        return $this->hasOne('App\Models\UserEmailVerification');
     }
 }

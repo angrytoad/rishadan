@@ -35,7 +35,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/me';
 
     /**
      * Create a new controller instance.
@@ -143,10 +143,51 @@ class RegisterController extends Controller
             } else {
                 $verification->delete();
                 session(['message' => 'Verification Expired!']);
-                return redirect('/');
+                return redirect('/verified');
             }
         } else {
             abort(502, 'Token Not Found');
         }
+    }
+
+        /**
+     * Verify account from token link
+     *
+     * @return view
+     */
+    public function verified() {
+        return view('auth.verified');
+    }
+
+        /**
+     * Verify account from token link
+     *
+     * @return view | redirect
+     */
+    public function resend(Request $request) {
+        //verify the user account exists
+        $email = $request->input('email');
+        $user = User::where('email', $email)->first();
+        if (empty($user)) {
+            session(['message' => 'User account not found, are you registered?']);
+            return redirect('/verified');
+        }
+        //Check if the registered user is already verified
+        if ($user->verified) {
+            session(['message' => 'User account is already activated!']);
+            return redirect('/verified');
+        }
+        //Check to see if a user has an unexpired verification record
+        if ($verification = $user->email_verification) {
+            $verification->delete();
+        }
+        $verification = UserEmailVerification::create([
+            'user_id' => $user->id,
+            'token' => uuid::generate(),
+            'expires' => Carbon::now()->addDay(),
+        ]);
+        $this->sendVerificationEmail($user->email, $verification->token);
+        session(['message' => 'Verification email sent!']);
+        return redirect('/verified');
     }
 }

@@ -18,17 +18,15 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/verify/{token}', 'Auth\RegisterController@verify')->name('verify');
-
+Route::get('/verified', 'Auth\RegisterController@verified')->name('verified');
+Route::post('/verified', 'Auth\RegisterController@resend')->name('resend');
 
 Route::get('/privacy-policy', 'Pages\PrivacyPolicyController@index')->name('privacy policy');
 Route::get('/terms-and-conditions', 'Pages\TermsConditionsController@index')->name('terms conditions');
 Route::get('/about-us', 'Pages\AboutUsController@index')->name('about us');
 
-
-Route::group(['middleware' => ['auth'], 'prefix' => 'me'], function () {
-    Route::get('/', 'Pages\HomeController@index')->name('dashboard');
-    Route::get('/account', 'Pages\HomeController@index')->name('account');
-    Route::get('/collection', 'Pages\HomeController@index')->name('collection');
+Route::group(['middleware' => ['auth', 'auth.verified'], 'prefix' => 'me'], function () {
+    Route::get('/', 'HomeController@index')->name('dashboard');
+    Route::get('/account', 'HomeController@index')->name('account');
+    Route::get('/collection', 'HomeController@index')->name('collection');
 });
-
-

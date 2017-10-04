@@ -26,7 +26,7 @@ Route::get('/terms-and-conditions', 'Pages\TermsConditionsController@index')->na
 Route::get('/about-us', 'Pages\AboutUsController@index')->name('about us');
 
 Route::group(['middleware' => ['auth', 'auth.verified'], 'prefix' => 'me'], function () {
-    Route::get('/', 'HomeController@index')->name('dashboard');
-    Route::get('/account', 'HomeController@index')->name('account');
-    Route::get('/collection', 'HomeController@index')->name('collection');
+    Route::get('/', 'Pages\HomeController@index')->name('dashboard');
+    Route::get('/account', 'Pages\AccountController@index')->name('account');
+    Route::get('/collection', 'Pages\HomeController@index')->name('collection');
 });

@@ -1,9 +1,6 @@
 .main{
-  border:1px solid rgba($text_color,0.1);
-  width:1170px;
+  width:$main_page_width;
   margin:auto;
-  background:$subtle_grey;
   padding:1rem;
-  border-radius: 4px;
   overflow: hidden;
 }

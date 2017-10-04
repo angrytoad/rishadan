@@ -38,7 +38,7 @@
             </div>
             <div class="col-md-4">
                 <a href="{{ route('register') }}">
-                    <button type="submit" class="btn btn-primary">
+                    <button type="button" class="btn btn-primary">
                         Register
                     </button>
                 </a>

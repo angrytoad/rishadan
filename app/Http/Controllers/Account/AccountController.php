@@ -11,16 +11,26 @@ use Illuminate\Support\Facades\Auth;
 class AccountController extends Controller
 {
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
         return view('layouts.account.index');
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function add_address()
     {
         return view('layouts.account.add_address');
     }
-    
+
+    /**
+     * @param $uuid
+     * @return $this|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function edit_address($uuid)
     {
         $address = UserAddress::find($uuid);
@@ -34,6 +44,11 @@ class AccountController extends Controller
 
     }
 
+    /**
+     * @param Request $request
+     * @param $uuid
+     * @return $this|\Illuminate\Http\RedirectResponse
+     */
     public function post_edit_address(Request $request, $uuid)
     {
         $request->validate([
@@ -63,6 +78,11 @@ class AccountController extends Controller
         }
     }
 
+    /**
+     * @param Request $request
+     * @param $uuid
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
+     */
     public function post_delete_address(Request $request, $uuid)
     {
         $address = UserAddress::find($uuid);
@@ -75,6 +95,10 @@ class AccountController extends Controller
         }
     }
 
+    /**
+     * @param Request $request
+     * @return $this|\Illuminate\Http\RedirectResponse
+     */
     public function post_add_address(Request $request)
     {
         $request->validate([

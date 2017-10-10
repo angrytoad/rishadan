@@ -8365,17 +8365,6 @@ a:hover {
   color: #02C39A;
 }
 
-.btn {
-  background: #00A896;
-  border: none;
-}
-
-.btn:hover,
-.btn:focus,
-.btn:active {
-  background: #02C39A;
-}
-
 .form-group {
   margin-bottom: 1rem;
   display: inline-block;

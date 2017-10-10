@@ -33,6 +33,7 @@ Route::group(['middleware' => ['auth', 'auth.verified'], 'prefix' => 'me'], func
         Route::post('/add_address', 'Account\AccountController@post_add_address')->name('post.account.add_address');
         Route::get('/address/{uuid}', 'Account\AccountController@edit_address')->name('account.edit_address');
         Route::post('/address/{uuid}', 'Account\AccountController@post_edit_address')->name('post.account.edit_address');
+        Route::delete('/address/{uuid}', 'Account\AccountController@post_delete_address')->name('post.account.delete_address');
     });
 
     Route::get('/', 'Pages\HomeController@index')->name('dashboard');

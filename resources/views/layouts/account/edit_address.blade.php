@@ -46,7 +46,33 @@
                 <div class="col-xs-12 col-md-6">
                     <button class="btn btn-primary">Edit this address</button>
                 </div>
+                <div class="col-xs-12 col-md-6">
+                    <button type="button" class="btn btn-danger" onclick="confirmDelete()">Delete this address</button>
+                </div>
             </div>
         </form>
     </div>
+@endsection
+@section('scripts')
+    <script>
+        function confirmDelete(){
+            vex.dialog.confirm({
+                message: 'Are you absolutely sure you want to delete this address?',
+                callback: function (value) {
+                    if(value){
+                        $.ajax({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
+                            url: '{{route('post.account.delete_address', ['uuid' => $address->id])}}',
+                            type: 'DELETE',
+                            success: function(result) {
+                                window.location.href = '{{ route('account') }}'
+                            }
+                        });
+                    }
+                }.bind(this)
+            })
+        }
+    </script>
 @endsection

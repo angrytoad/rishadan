@@ -63,6 +63,18 @@ class AccountController extends Controller
         }
     }
 
+    public function post_delete_address(Request $request, $uuid)
+    {
+        $address = UserAddress::find($uuid);
+        if($address !== null && $address->user->id === Auth::user()->id){
+            $address->delete();
+
+            return response(200);
+        }else{
+            return response(400);
+        }
+    }
+
     public function post_add_address(Request $request)
     {
         $request->validate([
@@ -95,7 +107,6 @@ class AccountController extends Controller
                 'alert-success' => 'Thanks for updating your address.'
             ]);
         }else{
-            $request->flash();
             return view('layouts.account.add_address')->withErrors([
                 'alert-danger' => 'You can only have one address, please ensure you tick `Replace your current address` in the form to replace your current address.'
             ]);

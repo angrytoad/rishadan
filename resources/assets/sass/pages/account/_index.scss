@@ -1,0 +1,70 @@
+
+#account{
+
+  #account_blocks_wrapper{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+            "address_settings address_settings profile_information"
+            "account_settings account_settings profile_information";
+    grid-gap:1rem;
+
+    #address_settings{
+      grid-area: address_settings;
+      padding:1rem;
+      background:$subtle_grey;
+
+      #address_settings_wrap{
+        display:grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 1rem;
+
+        a{
+          color:inherit;
+
+          .address{
+            height:150px;
+            background:white;
+            display:table;
+            width:100%;
+            border-radius:4px;
+            border:1px solid $persian_green;
+
+            .address_cell{
+              display:table-cell;
+              vertical-align: middle;
+              text-align: center;
+              padding-left:2rem;
+              padding-right:2rem;
+
+              i{
+                font-size:4rem;
+                opacity:0.4;
+              }
+
+              p{
+                font-size:1.6rem;
+                opacity:0.4;
+              }
+            }
+          }
+        }
+
+
+      }
+    }
+
+    #account_settings{
+      grid-area: account_settings;
+      padding:1rem;
+      background:$subtle_grey;
+    }
+
+    #profile_information{
+      grid-area: profile_information;
+      padding:1rem;
+      background:$subtle_grey;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 @extends('app')
-
+@section('title', 'Terms & Conditions')
 @section('content')
     <div class="main">
         <h2 style="text-align: center;">TERMS AND CONDITIONS</h2>

@@ -8352,6 +8352,8 @@ button.close {
 
 body {
   background: none;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
 }
 
 a {
@@ -8365,12 +8367,23 @@ a:hover {
 
 .btn {
   background: #00A896;
+  border: none;
 }
 
 .btn:hover,
 .btn:focus,
 .btn:active {
   background: #02C39A;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  display: inline-block;
+  width: 100%;
+}
+
+.form-group .control-label {
+  margin-top: 6px;
 }
 
 #header {
@@ -8434,7 +8447,7 @@ a:hover {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1fr 2fr 330px;
+  grid-template-columns: 1fr 2fr 380px;
   grid-template-rows: 1fr;
   grid-template-areas: "branding menu login_form";
   -webkit-box-align: center;
@@ -8668,10 +8681,79 @@ a:hover {
   grid-area: copyright;
 }
 
+#account #account_blocks_wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "address_settings address_settings profile_information" "account_settings account_settings profile_information";
+  grid-gap: 1rem;
+}
+
+#account #account_blocks_wrapper #address_settings {
+  grid-area: address_settings;
+  padding: 1rem;
+  background: #F7F7F7;
+}
+
+#account #account_blocks_wrapper #address_settings #address_settings_wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1rem;
+}
+
+#account #account_blocks_wrapper #address_settings #address_settings_wrap a {
+  color: inherit;
+}
+
+#account #account_blocks_wrapper #address_settings #address_settings_wrap a .address {
+  height: 150px;
+  background: white;
+  display: table;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #00A896;
+}
+
+#account #account_blocks_wrapper #address_settings #address_settings_wrap a .address .address_cell {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+#account #account_blocks_wrapper #address_settings #address_settings_wrap a .address .address_cell i {
+  font-size: 4rem;
+  opacity: 0.4;
+}
+
+#account #account_blocks_wrapper #address_settings #address_settings_wrap a .address .address_cell p {
+  font-size: 1.6rem;
+  opacity: 0.4;
+}
+
+#account #account_blocks_wrapper #account_settings {
+  grid-area: account_settings;
+  padding: 1rem;
+  background: #F7F7F7;
+}
+
+#account #account_blocks_wrapper #profile_information {
+  grid-area: profile_information;
+  padding: 1rem;
+  background: #F7F7F7;
+}
+
 #app {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto auto;
   grid-template-areas: "header" "content" "footer";
+}
+
+.subtitle {
+  font-weight: 500;
+  margin-top: 0;
+  color: #00A896;
 }
 

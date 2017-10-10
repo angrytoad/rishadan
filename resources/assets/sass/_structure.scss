@@ -6,6 +6,8 @@ html{
 
 body{
   background:none;
+  font-family: 'Raleway', sans-serif;
+  font-weight:300;
 }
 
 a{
@@ -18,8 +20,19 @@ a{
 
 .btn{
   background:$persian_green;
+  border:none;
 
   &:hover,&:focus,&:active{
     background:$caribbean_green;
+  }
+}
+
+.form-group{
+  margin-bottom:1rem;
+  display: inline-block;
+  width: 100%;
+
+  .control-label{
+    margin-top:6px;
   }
 }

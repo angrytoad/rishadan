@@ -26,7 +26,15 @@ Route::get('/terms-and-conditions', 'Pages\TermsConditionsController@index')->na
 Route::get('/about-us', 'Pages\AboutUsController@index')->name('about us');
 
 Route::group(['middleware' => ['auth', 'auth.verified'], 'prefix' => 'me'], function () {
+
+    Route::group(['middleware' => ['auth', 'auth.verified'], 'prefix' => 'account'], function () {
+        Route::get('/', 'Account\AccountController@index')->name('account');
+        Route::get('/add_address', 'Account\AccountController@add_address')->name('account.add_address');
+        Route::post('/add_address', 'Account\AccountController@post_add_address')->name('post.account.add_address');
+        Route::get('/address/{uuid}', 'Account\AccountController@edit_address')->name('account.edit_address');
+        Route::post('/address/{uuid}', 'Account\AccountController@post_edit_address')->name('post.account.edit_address');
+    });
+
     Route::get('/', 'Pages\HomeController@index')->name('dashboard');
-    Route::get('/account', 'Pages\AccountController@index')->name('account');
     Route::get('/collection', 'Pages\HomeController@index')->name('collection');
 });

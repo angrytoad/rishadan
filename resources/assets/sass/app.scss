@@ -20,6 +20,8 @@
 
 // Pages
 @import "pages/homepage";
+@import "pages/account/index";
+@import "pages/account/add_address";
 
 #app{
   display:grid;
@@ -29,5 +31,10 @@
   "header"
   "content"
   "footer";
+}
 
+.subtitle{
+  font-weight:500;
+  margin-top:0;
+  color:$persian_green;
 }

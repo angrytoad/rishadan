@@ -1,5 +1,5 @@
 @extends('app')
-
+@section('title', 'My Dashboard')
 @section('content')
 <div id="dashboard" class="main">
     <div class="row">

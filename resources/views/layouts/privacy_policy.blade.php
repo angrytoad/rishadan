@@ -1,5 +1,5 @@
 @extends('app')
-
+@section('title', 'Privacy Policy')
 @section('content')
     <div class="main">
         <h2>Privacy Policy</h2>

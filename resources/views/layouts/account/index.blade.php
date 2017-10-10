@@ -1,5 +1,5 @@
 @extends('app')
-
+@section('title', 'My Account')
 @section('content')
     <div id="account" class="main">
         @include('includes.flash_message')

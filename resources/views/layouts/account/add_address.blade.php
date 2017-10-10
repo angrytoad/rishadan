@@ -1,5 +1,5 @@
 @extends('app')
-
+@section('title', 'Add a new address')
 @section('content')
     <div id="account_add_address" class="main">
         @include('includes.flash_message')

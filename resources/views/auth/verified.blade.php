@@ -5,8 +5,8 @@
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading">
-                @if (!empty(session('message')))
-                    {{ session('message') }}
+                @if ($errors->any())
+                    {{ $errors->first() }}
                 @endif
             </div>
             <div class="panel-body">

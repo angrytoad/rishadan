@@ -137,13 +137,11 @@ class RegisterController extends Controller
                 $user = $verification->user;
                 $user->verified = true;
                 $user->save();
-                session(['message' => 'Verification Successful!']);
                 Auth::guard()->login($user);
                 return redirect('/');
             } else {
                 $verification->delete();
-                session(['message' => 'Verification Expired!']);
-                return redirect('/verified');
+                return redirect('/verified')->withErrors(['message', 'Verification Expired!']);
             }
         } else {
             abort(502, 'Token Not Found');
@@ -169,13 +167,11 @@ class RegisterController extends Controller
         $email = $request->input('email');
         $user = User::where('email', $email)->first();
         if (empty($user)) {
-            session(['message' => 'User account not found, are you registered?']);
-            return redirect('/verified');
+            return redirect('/verified')->withErrors(['message', 'User account not found, are you registered?']);
         }
         //Check if the registered user is already verified
         if ($user->verified) {
-            session(['message' => 'User account is already activated!']);
-            return redirect('/verified');
+            return redirect('/verified')->withErrors(['message', 'User account is already activated!']);
         }
         //Check to see if a user has an unexpired verification record
         if ($verification = $user->email_verification) {
@@ -187,7 +183,6 @@ class RegisterController extends Controller
             'expires' => Carbon::now()->addDay(),
         ]);
         $this->sendVerificationEmail($user->email, $verification->token);
-        session(['message' => 'Verification email sent!']);
-        return redirect('/verified');
+        return redirect('/verified')->withErrors(['message', 'Verification email sent!']);
     }
 }

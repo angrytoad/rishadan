@@ -23,7 +23,6 @@ class EmailVerified
         $loginController = new LoginController();
         $loginController->logout($request);
 
-        session(['message' => 'Account not verified, have you recieved the verification email?']);
-        return redirect('/verified');
+        return redirect('/verified')->withErrors(['message', 'Account not verified, have you recieved the verification email?']);
     }
 }

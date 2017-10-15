@@ -20,8 +20,12 @@
 
 // Pages
 @import "pages/homepage";
+
 @import "pages/account/index";
 @import "pages/account/add_address";
+
+@import "pages/collection/index";
+@import "pages/collection/view";
 
 #app{
   display:grid;

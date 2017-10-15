@@ -37,5 +37,13 @@ Route::group(['middleware' => ['auth', 'auth.verified'], 'prefix' => 'me'], func
     });
 
     Route::get('/', 'Pages\HomeController@index')->name('dashboard');
-    Route::get('/collection', 'Pages\HomeController@index')->name('collection');
+
+    Route::group(['middleware' => ['auth', 'auth.verified'], 'prefix' => 'collection'], function () {
+        Route::get('/', 'Pages\CollectionController@index')->name('collection');
+        Route::post('/create', 'Collection\CollectionController@post_create')->name('post.collection.create');
+        
+        Route::get('/view/{uuid}', 'Pages\CollectionController@view')->name('collection.view')->middleware('collection.owner');
+        Route::delete('/view/{uuid}', 'Collection\CollectionController@delete')->name('collection.delete')->middleware('collection.owner');
+    });
+
 });

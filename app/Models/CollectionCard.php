@@ -6,7 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Webpatser\Uuid\Uuid;
 
-class User extends Authenticatable
+class CollectionCard extends Authenticatable
 {
     use Notifiable;
     use \App\Traits\Uuids;
@@ -18,18 +18,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'verified'
+        'collection_id','card_id','user_id','image','condition','created_at','updated_at'
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
-    
     public function addresses()
     {
         return $this->hasMany('App\Models\UserAddress');
@@ -38,7 +29,7 @@ class User extends Authenticatable
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function email_verification() 
+    public function email_verification()
     {
         return $this->hasOne('App\Models\UserEmailVerification');
     }
@@ -46,13 +37,18 @@ class User extends Authenticatable
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function collections()
+    public function collection()
     {
-        return $this->hasMany('App\Models\Collection');
+        return $this->hasOne('App\Models\Collection');
     }
     
-    public function cards()
+    public function user()
     {
-        return $this->hasMany('App\Models\CollectionCard');
+        return $this->hasOne('App\Models\User');
+    }
+
+    public function card()
+    {
+        return $this->hasOne('App\Models\Card');
     }
 }

@@ -8354,6 +8354,7 @@ body {
   background: none;
   font-family: 'Raleway', sans-serif;
   font-weight: 300;
+  color: #333333;
 }
 
 a {
@@ -8731,6 +8732,104 @@ a:hover {
   grid-area: profile_information;
   padding: 1rem;
   background: #F7F7F7;
+}
+
+#collection #collection_wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 1rem;
+}
+
+#collection #collection_wrapper a {
+  color: #333333;
+  text-decoration: none;
+}
+
+#collection #collection_wrapper .collection_item {
+  padding: 1rem;
+  display: table;
+  background: #F7F7F7;
+  width: 100%;
+  height: 300px;
+}
+
+#collection #collection_wrapper .collection_item:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+#collection #collection_wrapper .collection_item .collection_info {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+#collection #collection_wrapper .collection_item .collection_info p {
+  margin: 0;
+}
+
+#collection #collection_wrapper .collection_item .collection_info .sub_data {
+  margin-top: 0;
+}
+
+#collection #collection_wrapper .collection_item .collection_info i {
+  font-size: 3rem;
+}
+
+#collection_view {
+  position: relative;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+#collection_view .title {
+  margin: 0;
+}
+
+#collection_view #collection_view_extra {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#collection_view #collection_view_extra #collection_view_extra_hover {
+  top: 0;
+  right: 0;
+  opacity: 0.5;
+  padding-bottom: 3rem;
+}
+
+#collection_view #collection_view_extra #collection_view_extra_hover i:first-child {
+  font-size: 2.3rem;
+}
+
+#collection_view #collection_view_extra #collection_view_extra_hover i:nth-child(2) {
+  vertical-align: top;
+  margin-top: 6px;
+}
+
+#collection_view #collection_view_extra #collection_view_extra_menu {
+  width: auto;
+  position: absolute;
+  top: 3rem;
+  right: 0;
+  background: #333333;
+  padding: 1rem;
+  text-align: right;
+  border-radius: 4px;
+}
+
+#collection_view #collection_view_extra #collection_view_extra_menu button {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+#collection_view #collection_view_extra #collection_view_extra_menu button:last-child {
+  margin-bottom: 0;
+}
+
+#collection_view #collection_view_card_count {
+  margin: 0;
 }
 
 #app {

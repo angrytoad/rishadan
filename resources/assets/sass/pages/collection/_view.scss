@@ -1,0 +1,55 @@
+#collection_view{
+  position: relative;
+  padding-top:4rem;
+  padding-bottom:4rem;
+
+  .title{
+    margin:0;
+  }
+
+  #collection_view_extra{
+    position: absolute;
+    top:0;
+    right:0;
+
+    #collection_view_extra_hover{
+      top:0;
+      right:0;
+      opacity:0.5;
+      padding-bottom:3rem;
+
+      i:first-child{
+        font-size:2.3rem;
+      }
+
+      i:nth-child(2){
+        vertical-align: top;
+        margin-top: 6px;
+      }
+    }
+
+    #collection_view_extra_menu{
+      width:auto;
+      position: absolute;
+      top:3rem;
+      right:0;
+      background:$text_color;
+      padding:1rem;
+      text-align: right;
+      border-radius:4px;
+
+      button{
+        margin-bottom:1rem;
+        width:100%;
+      }
+
+      button:last-child{
+        margin-bottom:0;
+      }
+    }
+  }
+
+  #collection_view_card_count{
+    margin:0;
+  }
+}

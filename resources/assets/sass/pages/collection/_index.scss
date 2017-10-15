@@ -1,0 +1,44 @@
+
+#collection{
+  #collection_wrapper{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap:1rem;
+
+    a{
+      color:$text_color;
+      text-decoration: none;
+    }
+
+    .collection_item{
+      padding:1rem;
+      display:table;
+      background:$subtle_grey;
+      width:100%;
+      height:300px;
+
+      &:hover{
+        opacity:0.7;
+        cursor:pointer;
+      }
+
+      .collection_info{
+        display:table-cell;
+        vertical-align: middle;
+        text-align: center;
+
+        p{
+          margin:0;
+        }
+
+        .sub_data{
+          margin-top:0;
+        }
+
+        i{
+          font-size:3rem;
+        }
+      }
+    }
+  }
+}

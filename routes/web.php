@@ -27,6 +27,11 @@ Route::get('/about-us', 'Pages\AboutUsController@index')->name('about us');
 
 Route::group(['middleware' => ['auth', 'auth.verified'], 'prefix' => 'me'], function () {
 
+    Route::group(['middleware' => ['auth', 'auth.verified'], 'prefix' => 'search'], function () {
+       Route::get('/card', 'Search\CardSearchController@index')->name('search.card');
+       Route::post('/card', 'Search\CardSearchController@search')->name('search.card');
+    });
+
     Route::group(['middleware' => ['auth', 'auth.verified'], 'prefix' => 'account'], function () {
         Route::get('/', 'Account\AccountController@index')->name('account');
         Route::get('/add_address', 'Account\AccountController@add_address')->name('account.add_address');

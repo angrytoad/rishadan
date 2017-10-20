@@ -5,6 +5,9 @@
         @include('includes.flash_message')
         <h1 class="title">{{ $collection->name }}</h1>
         <h4 id="collection_view_card_count">Total Cards in this Collection: {{ count($collection->cards) }}</h4>
+        <div id="collection_view_buttons">
+            <a href="{{ route('search.card') }}"><button class="btn btn-success">Add cards</button></a>
+        </div>
 
 
 

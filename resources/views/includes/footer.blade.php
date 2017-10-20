@@ -21,7 +21,6 @@
             </ul>
         </div>
         <div id="copyright">
-            <p>&copy; Rishadan.com {{ \Carbon\Carbon::now()->format('Y') }}</p>
         </div>
         @include('includes.branding')
     </div>

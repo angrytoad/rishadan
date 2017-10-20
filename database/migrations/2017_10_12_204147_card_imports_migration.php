@@ -17,72 +17,97 @@ class CardImportsMigration extends Migration
             $table->uuid('id');
             $table->string('json_id');
             $table->string('name');
-            $table->uuid('set_id');
             $table->string('image_url');
             $table->string('card_url');
-            $table->text('text');
-            $table->text('flavor');
+            $table->text('text')->nullable();
+            $table->text('flavor')->nullable();
             $table->boolean('reserved');
             $table->string('artist');
-            $table->uuid('rarity_id');
-            $table->string('mana_cost');
-            $table->integer('cmc');
-            $table->integer('power');
-            $table->integer('toughness');
-            $table->string('multiverse_id');
+            $table->uuid('rarity_id')->nullable();
+            $table->string('mana_cost')->nullable();
+            $table->integer('cmc')->nullable();
+            $table->integer('power')->nullable();
+            $table->integer('toughness')->nullable();
+            $table->string('multiverse_id')->index();
+            $table->string('import_id')->index();
             $table->boolean('timeshifted');
             $table->dateTime('release_date')->nullable();
             $table->uuid('twin_id')->nullable();
             $table->json('json');
+            $table->timestamps();
         });
 
         Schema::create('variations', function (Blueprint $table) {
-
+            $table->uuid('id');
+            $table->uuid('variation_id');
+            $table->uuid('card_id');
+            $table->timestamps();
         });
 
-        Schema::create('card_variation', function (Blueprint $table) {
-
-        });  
-
         Schema::create('colors', function (Blueprint $table) {
-
+            $table->uuid('id');
+            $table->string('name');
+            $table->timestamps();
         });
 
         Schema::create('card_color', function (Blueprint $table) {
-
+            $table->uuid('id');
+            $table->uuid('card_id');
+            $table->uuid('color_id');
         });        
 
         Schema::create('rarities', function (Blueprint $table) {
-
+            $table->uuid('id');
+            $table->string('name');
+            $table->timestamps();
         });
 
         Schema::create('supertypes', function (Blueprint $table) {
-            
+            $table->uuid('id');
+            $table->string('supertype');
+            $table->timestamps();
         });
 
         Schema::create('card_supertype', function (Blueprint $table) {
-            
+            $table->uuid('id');
+            $table->uuid('card_id');
+            $table->uuid('supertype_id');
         });
 
         Schema::create('types', function (Blueprint $table) {
-            
+            $table->uuid('id');
+            $table->string('type');
+            $table->timestamps();
         });
 
         Schema::create('card_type', function (Blueprint $table) {
-            
+            $table->uuid('id');
+            $table->uuid('card_id');
+            $table->uuid('type_id');
         });
 
         Schema::create('subtypes', function (Blueprint $table) {
-            
+            $table->uuid('id');
+            $table->string('subtype');
+            $table->timestamps();
         });
 
         Schema::create('card_subtype', function (Blueprint $table) {
-            
+            $table->uuid('id');
+            $table->uuid('card_id');
+            $table->uuid('subtype_id');
         });
 
         Schema::create('blocks', function (Blueprint $table) {
             $table->uuid('id');
             $table->string('name');
+            $table->timestamps();
+        });
+
+        Schema::create('card_set', function (Blueprint $table) {
+            $table->uuid('id');
+            $table->uuid('card_id');
+            $table->uuid('set_id');
         });
 
         Schema::create('sets', function (Blueprint $table) {
@@ -90,7 +115,8 @@ class CardImportsMigration extends Migration
             $table->string('name');
             $table->string('code');
             $table->dateTime('release_date');
-            $table->uuid('block_id');
+            $table->uuid('block_id')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -104,8 +130,8 @@ class CardImportsMigration extends Migration
         Schema::dropIfExists('cards');
         Schema::dropIfExists('blocks');
         Schema::dropIfExists('sets');
+        Schema::dropIfExists('card_set');
         Schema::dropIfExists('variations');
-        Schema::dropIfExists('card_variation');
         Schema::dropIfExists('colors');
         Schema::dropIfExists('card_color');
         Schema::dropIfExists('rarities');

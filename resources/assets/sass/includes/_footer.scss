@@ -1,40 +1,13 @@
 #footer {
   grid-area: footer;
   padding: 1rem;
-  background: url(/images/hypnotize.png);
   background-repeat: repeat;
   margin-top: 1rem;
   box-shadow:0px 0px 9px rgba($text_color,0.3);
   position: relative;
-
-  p{
-    color:$subtle_grey;
-  }
+  background: $subtle_grey;
 
   #footer_bg {
-    background: linear-gradient(216deg, #1a1a1a, #232323, #343434);
-    background-size: 600% 600%;
-
-    -webkit-animation: GreySwivel 20s ease infinite;
-    -moz-animation: GreySwivel 20s ease infinite;
-    animation: GreySwivel 20s ease infinite;
-
-    @-webkit-keyframes GreySwivel {
-      0%{background-position:100% 0%}
-      50%{background-position:0% 100%}
-      100%{background-position:100% 0%}
-    }
-    @-moz-keyframes GreySwivel {
-      0%{background-position:100% 0%}
-      50%{background-position:0% 100%}
-      100%{background-position:100% 0%}
-    }
-    @keyframes GreySwivel {
-      0%{background-position:100% 0%}
-      50%{background-position:0% 100%}
-      100%{background-position:100% 0%}
-    }
-
     position: absolute;
     top: 0;
     left: 0;
@@ -47,17 +20,14 @@
     position: relative;
     z-index:1;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 2fr;
     grid-template-rows: 1fr;
-    grid-template-areas: "menu1 menu2 copyright branding";
+    grid-template-areas: "menu1 menu2 branding";
     width: $main_page_width;
     margin: auto;
     align-items: center;
     padding-left: 1rem;
     padding-right: 1rem;
-    padding-top:2rem;
-    padding-bottom:2rem;
-    grid-gap:120px;
 
     ul{
       padding:0;
@@ -66,6 +36,10 @@
       li{
         font-size:1.6rem;
       }
+    }
+
+    ul{
+      margin:0;
     }
 
     #left_footer{
@@ -79,9 +53,14 @@
 
     #branding{
       grid-area: branding;
+      text-align: right;
 
       a:hover{
         text-decoration: none!important;
+      }
+
+      p{
+        margin:0;
       }
 
       h1{
@@ -91,10 +70,6 @@
 
     #logo{
       grid-area: logo;
-    }
-
-    #copyright{
-      grid-area: copyright;
     }
   }
 

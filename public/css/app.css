@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i);@charset "UTF-8";
 
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
@@ -8352,17 +8352,18 @@ button.close {
 
 body {
   background: none;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Droid Serif', serif;
   font-weight: 300;
+  color: #333333;
 }
 
 a {
-  color: #00A896;
+  color: #4E753F;
 }
 
 a:focus,
 a:hover {
-  color: #02C39A;
+  color: #67825C;
 }
 
 .form-group {
@@ -8378,24 +8379,15 @@ a:hover {
 #header {
   grid-area: header;
   padding: 1rem;
-  background: url(/images/hypnotize.png);
   background-repeat: repeat;
   margin-bottom: 1rem;
   position: relative;
   -webkit-box-shadow: 0px 0px 9px rgba(51, 51, 51, 0.3);
           box-shadow: 0px 0px 9px rgba(51, 51, 51, 0.3);
-}
-
-#header p,
-#header label {
-  color: #F7F7F7;
+  background: #F7F7F7;
 }
 
 #header #header_bg {
-  background: linear-gradient(216deg, #1a1a1a, #232323, #343434);
-  background-size: 600% 600%;
-  -webkit-animation: GreySwivel 20s ease infinite;
-  animation: GreySwivel 20s ease infinite;
   position: absolute;
   top: 0;
   left: 0;
@@ -8403,42 +8395,14 @@ a:hover {
   bottom: 0;
 }
 
-@-webkit-keyframes GreySwivel {
-  0% {
-    background-position: 100% 0%;
-  }
-
-  50% {
-    background-position: 0% 100%;
-  }
-
-  100% {
-    background-position: 100% 0%;
-  }
-}
-
-@keyframes GreySwivel {
-  0% {
-    background-position: 100% 0%;
-  }
-
-  50% {
-    background-position: 0% 100%;
-  }
-
-  100% {
-    background-position: 100% 0%;
-  }
-}
-
 #header #center_wrapper {
   padding: 0;
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1fr 2fr 380px;
+  grid-template-columns: 2fr 1fr;
   grid-template-rows: 1fr;
-  grid-template-areas: "branding menu login_form";
+  grid-template-areas: "branding login_form";
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -8446,47 +8410,6 @@ a:hover {
   margin: auto;
   padding-left: 1rem;
   padding-right: 1rem;
-}
-
-#header #menu {
-  grid-area: menu;
-  background-image: url(/images/header_advert_bg.png);
-  background-position: center;
-  background-size: cover;
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-#header #menu #store_link {
-  height: 100px;
-  position: relative;
-  border-radius: 4px;
-}
-
-#header #menu #store_link #store_dark_bg {
-  position: absolute;
-  background: rgba(0, 0, 0, 0.3);
-  display: table;
-  height: 100%;
-  width: 100%;
-  color: white;
-}
-
-#header #menu #store_link #store_dark_bg #store_link_text {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
-  padding-left: 4rem;
-  padding-right: 4rem;
-}
-
-#header #menu #store_link #store_dark_bg #store_link_text h4 {
-  font-weight: 900;
-}
-
-#header #menu #store_link #store_dark_bg #store_link_text h4,
-#header #menu #store_link #store_dark_bg #store_link_text p {
-  margin: 0;
 }
 
 #header #branding {
@@ -8511,36 +8434,6 @@ a:hover {
   grid-area: login_form;
 }
 
-#header #login_form .form-group,
-#header #header_profile .form-group {
-  margin: 0;
-  margin-bottom: 3px;
-}
-
-#header #login_form .form-group .form-control,
-#header #header_profile .form-group .form-control {
-  height: 24px;
-}
-
-#header #login_form .form-group button,
-#header #header_profile .form-group button {
-  width: 100%;
-}
-
-@media (min-width: 768px) {
-  #header #login_form .form-group .control-label,
-  #header #header_profile .form-group .control-label {
-    text-align: right;
-    margin-bottom: 0;
-    padding-top: 2px;
-  }
-}
-
-#header #login_form .form-group .btn,
-#header #header_profile .form-group .btn {
-  padding: 1px 12px;
-}
-
 #header #header_profile {
   text-align: right;
   padding-left: 4rem;
@@ -8560,23 +8453,15 @@ a:hover {
 #footer {
   grid-area: footer;
   padding: 1rem;
-  background: url(/images/hypnotize.png);
   background-repeat: repeat;
   margin-top: 1rem;
   -webkit-box-shadow: 0px 0px 9px rgba(51, 51, 51, 0.3);
           box-shadow: 0px 0px 9px rgba(51, 51, 51, 0.3);
   position: relative;
-}
-
-#footer p {
-  color: #F7F7F7;
+  background: #F7F7F7;
 }
 
 #footer #footer_bg {
-  background: linear-gradient(216deg, #1a1a1a, #232323, #343434);
-  background-size: 600% 600%;
-  -webkit-animation: GreySwivel 20s ease infinite;
-  animation: GreySwivel 20s ease infinite;
   position: absolute;
   top: 0;
   left: 0;
@@ -8584,42 +8469,14 @@ a:hover {
   bottom: 0;
 }
 
-@-webkit-keyframes GreySwivel {
-  0% {
-    background-position: 100% 0%;
-  }
-
-  50% {
-    background-position: 0% 100%;
-  }
-
-  100% {
-    background-position: 100% 0%;
-  }
-}
-
-@keyframes GreySwivel {
-  0% {
-    background-position: 100% 0%;
-  }
-
-  50% {
-    background-position: 0% 100%;
-  }
-
-  100% {
-    background-position: 100% 0%;
-  }
-}
-
 #footer #center_wrapper {
   padding: 0;
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 2fr;
   grid-template-rows: 1fr;
-  grid-template-areas: "menu1 menu2 copyright branding";
+  grid-template-areas: "menu1 menu2 branding";
   width: 1170px;
   margin: auto;
   -webkit-box-align: center;
@@ -8627,9 +8484,6 @@ a:hover {
           align-items: center;
   padding-left: 1rem;
   padding-right: 1rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  grid-gap: 120px;
 }
 
 #footer #center_wrapper ul {
@@ -8639,6 +8493,10 @@ a:hover {
 
 #footer #center_wrapper ul li {
   font-size: 1.6rem;
+}
+
+#footer #center_wrapper ul {
+  margin: 0;
 }
 
 #footer #center_wrapper #left_footer {
@@ -8652,10 +8510,15 @@ a:hover {
 
 #footer #center_wrapper #branding {
   grid-area: branding;
+  text-align: right;
 }
 
 #footer #center_wrapper #branding a:hover {
   text-decoration: none !important;
+}
+
+#footer #center_wrapper #branding p {
+  margin: 0;
 }
 
 #footer #center_wrapper #branding h1 {
@@ -8664,10 +8527,6 @@ a:hover {
 
 #footer #center_wrapper #logo {
   grid-area: logo;
-}
-
-#footer #center_wrapper #copyright {
-  grid-area: copyright;
 }
 
 #account #account_blocks_wrapper {
@@ -8700,7 +8559,7 @@ a:hover {
   display: table;
   width: 100%;
   border-radius: 4px;
-  border: 1px solid #00A896;
+  border: 1px solid #4E753F;
 }
 
 #account #account_blocks_wrapper #address_settings #address_settings_wrap a .address .address_cell {
@@ -8733,6 +8592,109 @@ a:hover {
   background: #F7F7F7;
 }
 
+#collection #collection_wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 1rem;
+}
+
+#collection #collection_wrapper a {
+  color: #333333;
+  text-decoration: none;
+}
+
+#collection #collection_wrapper .collection_item {
+  padding: 1rem;
+  display: table;
+  background: #F7F7F7;
+  width: 100%;
+  height: 300px;
+}
+
+#collection #collection_wrapper .collection_item:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+#collection #collection_wrapper .collection_item .collection_info {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+#collection #collection_wrapper .collection_item .collection_info p {
+  margin: 0;
+}
+
+#collection #collection_wrapper .collection_item .collection_info .sub_data {
+  margin-top: 0;
+}
+
+#collection #collection_wrapper .collection_item .collection_info i {
+  font-size: 3rem;
+}
+
+#collection_view {
+  position: relative;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+#collection_view .title {
+  margin: 0;
+}
+
+#collection_view #collection_view_buttons {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+#collection_view #collection_view_extra {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#collection_view #collection_view_extra #collection_view_extra_hover {
+  top: 0;
+  right: 0;
+  opacity: 0.5;
+  padding-bottom: 3rem;
+}
+
+#collection_view #collection_view_extra #collection_view_extra_hover i:first-child {
+  font-size: 2.3rem;
+}
+
+#collection_view #collection_view_extra #collection_view_extra_hover i:nth-child(2) {
+  vertical-align: top;
+  margin-top: 6px;
+}
+
+#collection_view #collection_view_extra #collection_view_extra_menu {
+  width: auto;
+  position: absolute;
+  top: 3rem;
+  right: 0;
+  background: #333333;
+  padding: 1rem;
+  text-align: right;
+  border-radius: 4px;
+}
+
+#collection_view #collection_view_extra #collection_view_extra_menu button {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+#collection_view #collection_view_extra #collection_view_extra_menu button:last-child {
+  margin-bottom: 0;
+}
+
+#collection_view #collection_view_card_count {
+  margin: 0;
+}
+
 #app {
   display: grid;
   grid-template-columns: 1fr;
@@ -8743,6 +8705,10 @@ a:hover {
 .subtitle {
   font-weight: 500;
   margin-top: 0;
-  color: #00A896;
+  color: #4E753F;
+}
+
+.vex.vex-theme-flat-attack .vex-content {
+  font-family: "Droid Serif", serif !important;
 }
 

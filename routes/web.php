@@ -27,6 +27,11 @@ Route::get('/about-us', 'Pages\AboutUsController@index')->name('about us');
 
 Route::group(['middleware' => ['auth', 'auth.verified'], 'prefix' => 'me'], function () {
 
+    Route::group(['middleware' => ['auth', 'auth.verified'], 'prefix' => 'search'], function () {
+       Route::get('/card', 'Search\CardSearchController@index')->name('search.card');
+       Route::post('/card', 'Search\CardSearchController@search')->name('search.card');
+    });
+
     Route::group(['middleware' => ['auth', 'auth.verified'], 'prefix' => 'account'], function () {
         Route::get('/', 'Account\AccountController@index')->name('account');
         Route::get('/add_address', 'Account\AccountController@add_address')->name('account.add_address');
@@ -37,5 +42,13 @@ Route::group(['middleware' => ['auth', 'auth.verified'], 'prefix' => 'me'], func
     });
 
     Route::get('/', 'Pages\HomeController@index')->name('dashboard');
-    Route::get('/collection', 'Pages\HomeController@index')->name('collection');
+
+    Route::group(['middleware' => ['auth', 'auth.verified'], 'prefix' => 'collection'], function () {
+        Route::get('/', 'Pages\CollectionController@index')->name('collection');
+        Route::post('/create', 'Collection\CollectionController@post_create')->name('post.collection.create');
+        
+        Route::get('/view/{uuid}', 'Pages\CollectionController@view')->name('collection.view')->middleware('collection.owner');
+        Route::delete('/view/{uuid}', 'Collection\CollectionController@delete')->name('collection.delete')->middleware('collection.owner');
+    });
+
 });

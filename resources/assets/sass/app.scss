@@ -2,7 +2,7 @@
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
 // Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+@import url("https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i");
 
 // Variables
 @import "variables";
@@ -20,8 +20,13 @@
 
 // Pages
 @import "pages/homepage";
+@import "pages/welcome";
+
 @import "pages/account/index";
 @import "pages/account/add_address";
+
+@import "pages/collection/index";
+@import "pages/collection/view";
 
 #app{
   display:grid;
@@ -37,4 +42,8 @@
   font-weight:500;
   margin-top:0;
   color:$persian_green;
+}
+
+.vex.vex-theme-flat-attack .vex-content{
+  font-family: 'Droid Serif', serif!important;
 }

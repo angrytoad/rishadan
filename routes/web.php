@@ -25,6 +25,11 @@ Route::get('/privacy-policy', 'Pages\PrivacyPolicyController@index')->name('priv
 Route::get('/terms-and-conditions', 'Pages\TermsConditionsController@index')->name('terms conditions');
 Route::get('/about-us', 'Pages\AboutUsController@index')->name('about us');
 
+/*
+ * DEFINITELY REMOVE THIS WHEN NOT IN USE!!!
+ */
+Route::get('/importer', 'Importer\ImporterController@show');
+
 Route::group(['middleware' => ['auth', 'auth.verified'], 'prefix' => 'me'], function () {
 
     Route::group(['middleware' => ['auth', 'auth.verified'], 'prefix' => 'search'], function () {

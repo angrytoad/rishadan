@@ -28,11 +28,12 @@ class CardSearchController extends Controller
 
     public function search(Request $request)
     {
+        $request->flash();
         $request->validate([
             'search' => 'required|string|min:4',
         ]);
         $search = $request->get('search');
-        $results = Card::where('name', 'LIKE', "%$search%")->get();
+        $results = Card::where('name', 'LIKE', "%$search%")->orderBy('name','ASC')->get();
         return view('layouts.search.card', [
             'results' => $results
         ]);

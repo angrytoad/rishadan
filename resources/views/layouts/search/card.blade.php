@@ -15,7 +15,7 @@
                                 type="text"
                                 name="search"
                                 placeholder="Please search for the card name here | min 4 characters"
-                                value="{{ old('card') }}"
+                                value="{{ old('search') }}"
                         />
                     </div>
                 </div>
@@ -27,6 +27,7 @@
         <div class="row">
             @if(isset($results))
                 <div id="card_search_results" class="col-xs-12">
+                    <p>Total Results : {{ count($results) }}</p>
                     @foreach($results as $card)
                         <div class="col-xs-12">
                             <h2>{{ $card->name }}</h2>

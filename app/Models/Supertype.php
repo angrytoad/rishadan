@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Webpatser\Uuid\Uuid;
 
-class Collection extends Model
+class Supertype extends Model
 {
     use Notifiable;
     use \App\Traits\Uuids;
@@ -18,18 +18,15 @@ class Collection extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id','name','created_at','updated_at'
+        'supertype',
+        'created_at',
+        'updated_at',
     ];
-
 
     public function cards()
     {
-        return $this->hasMany('App\Models\CollectionCard');
+        return $this->belongsToMany('App\Models\Card');
     }
 
-    public function user()
-    {
-        return $this->belongsTo('App\Models\User');
-    }
 
 }

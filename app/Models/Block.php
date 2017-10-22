@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Webpatser\Uuid\Uuid;
 
-class Collection extends Model
+class Block extends Authenticatable
 {
     use Notifiable;
     use \App\Traits\Uuids;
@@ -18,18 +18,15 @@ class Collection extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id','name','created_at','updated_at'
+        'name',
+        'created_at',
+        'updated_at',
     ];
 
 
-    public function cards()
+    public function sets()
     {
-        return $this->hasMany('App\Models\CollectionCard');
-    }
-
-    public function user()
-    {
-        return $this->belongsTo('App\Models\User');
+        return $this->hasMany('App\Models\Set');
     }
 
 }

@@ -10,7 +10,13 @@
                     <div class="form-group">
                         <label for="card">Enter keywords</label>
                         {{ csrf_field() }}
-                        <input class="col-xs-12 form-control" type="text" name="card" placeholder="Please enter the name of the card" value="{{ old('card') }}"/>
+                        <input
+                                class="col-xs-12 form-control"
+                                type="text"
+                                name="search"
+                                placeholder="Please search for the card name here | min 4 characters"
+                                value="{{ old('card') }}"
+                        />
                     </div>
                 </div>
                 <div class="col-xs-12">
@@ -21,6 +27,15 @@
         <div class="row">
             @if(isset($results))
                 <div id="card_search_results" class="col-xs-12">
+                    @foreach($results as $card)
+                        <div class="col-xs-12">
+                            <h2>{{ $card->name }}</h2>
+                            @foreach($card->sets as $set)
+                                <p>{{ $set->name }}</p>
+                            @endforeach
+                            <img src="{{$card->image_url}}" />
+                        </div>
+                    @endforeach
                 </div>
             @endif
         </div>

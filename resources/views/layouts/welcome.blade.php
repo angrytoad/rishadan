@@ -2,6 +2,7 @@
 @section('title', 'Welcome')
 @section('content')
     <div id="welcome" class="main">
+        @include('includes.flash_message')
         <div id="quick_search">
             <!--
             Quick search bar with minimal filters
@@ -52,7 +53,13 @@
                 <div id="card_search_input" class="col-xs-12 col-md-8">
                     <div class="form-group">
                         {{ csrf_field() }}
-                        <input class="col-xs-12 form-control" type="text" name="card" placeholder="Please enter the name of the card" value="{{ old('card') }}"/>
+                        <input
+                                class="col-xs-12 form-control"
+                                type="text"
+                                name="search"
+                                placeholder="Please search for the card name here | min 4 characters"
+                                value="{{ old('card') }}"
+                        />
                     </div>
                 </div>
                 <div class="col-xs-12 col-md-4">

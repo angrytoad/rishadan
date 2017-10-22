@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Search;
 
 
 use App\Http\Controllers\Controller;
+use App\Models\Card;
 use App\Models\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -27,6 +28,13 @@ class CardSearchController extends Controller
 
     public function search(Request $request)
     {
-        dd('THIS CODE NEEDS FINISHING');
+        $request->validate([
+            'search' => 'required|string|min:4',
+        ]);
+        $search = $request->get('search');
+        $results = Card::where('name', 'LIKE', "%$search%")->get();
+        return view('layouts.search.card', [
+            'results' => $results
+        ]);
     }
 }

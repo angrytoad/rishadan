@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Webpatser\Uuid\Uuid;
 
-class Set extends Authenticatable
+class Set extends Model
 {
     use Notifiable;
     use \App\Traits\Uuids;
@@ -29,7 +29,7 @@ class Set extends Authenticatable
 
     public function cards()
     {
-        return $this->hasMany('App\Models\Card');
+        return $this->belongsToMany('App\Models\Card');
     }
 
     public function block()

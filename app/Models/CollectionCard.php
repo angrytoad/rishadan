@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Webpatser\Uuid\Uuid;
 
-class CollectionCard extends Authenticatable
+class CollectionCard extends Model
 {
     use Notifiable;
     use \App\Traits\Uuids;

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Importer;
 
+//ini_set('memory_limit','1024M');
 
 use App\Http\Controllers\Controller;
 

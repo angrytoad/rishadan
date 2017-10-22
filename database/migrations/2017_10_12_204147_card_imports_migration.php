@@ -15,10 +15,9 @@ class CardImportsMigration extends Migration
     {
         Schema::create('cards', function (Blueprint $table) {
             $table->uuid('id');
-            $table->string('json_id');
             $table->string('name');
-            $table->string('image_url');
-            $table->string('card_url');
+            $table->string('image_url')->nullable();
+            $table->string('card_url')->nullable();
             $table->text('text')->nullable();
             $table->text('flavor')->nullable();
             $table->boolean('reserved');
@@ -28,11 +27,12 @@ class CardImportsMigration extends Migration
             $table->integer('cmc')->nullable();
             $table->integer('power')->nullable();
             $table->integer('toughness')->nullable();
-            $table->string('multiverse_id')->index();
+            $table->string('multiverse_id')->nullable();
             $table->string('import_id')->index();
             $table->boolean('timeshifted');
             $table->dateTime('release_date')->nullable();
-            $table->uuid('twin_id')->nullable();
+            $table->string('exceptional_power')->nullable();
+            $table->string('exceptional_toughness')->nullable();
             $table->json('json');
             $table->timestamps();
         });
@@ -51,7 +51,6 @@ class CardImportsMigration extends Migration
         });
 
         Schema::create('card_color', function (Blueprint $table) {
-            $table->uuid('id');
             $table->uuid('card_id');
             $table->uuid('color_id');
         });        
@@ -69,7 +68,6 @@ class CardImportsMigration extends Migration
         });
 
         Schema::create('card_supertype', function (Blueprint $table) {
-            $table->uuid('id');
             $table->uuid('card_id');
             $table->uuid('supertype_id');
         });
@@ -81,7 +79,6 @@ class CardImportsMigration extends Migration
         });
 
         Schema::create('card_type', function (Blueprint $table) {
-            $table->uuid('id');
             $table->uuid('card_id');
             $table->uuid('type_id');
         });
@@ -93,7 +90,6 @@ class CardImportsMigration extends Migration
         });
 
         Schema::create('card_subtype', function (Blueprint $table) {
-            $table->uuid('id');
             $table->uuid('card_id');
             $table->uuid('subtype_id');
         });
@@ -105,7 +101,6 @@ class CardImportsMigration extends Migration
         });
 
         Schema::create('card_set', function (Blueprint $table) {
-            $table->uuid('id');
             $table->uuid('card_id');
             $table->uuid('set_id');
         });
